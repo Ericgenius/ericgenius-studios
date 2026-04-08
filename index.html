@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ericgenius Studios</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       PAGE 1 — LANDING / SPLASH
+  ═══════════════════════════════════════════════ -->
+  <div id="page-landing" class="page active">
+
+    <!-- Background canvas -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- ── NAV ── -->
+    <nav class="nav">
+      <div class="nav-brand">Ericgenius</div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Drawer -->
+    <div class="drawer" id="drawer">
+      <button class="drawer-close" id="drawer-close"><i class="fa fa-times"></i></button>
+      <ul class="drawer-links">
+        <li><a href="#" onclick="openPage2(); closeDrw()">About</a></li>
+        <li><a href="#" onclick="openPortfolio(); closeDrw()">Portfolio</a></li>
+        <li><a href="#" onclick="scrollToContact(); closeDrw()">Contact</a></li>
+      </ul>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrw()"></div>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-tag">Creative &amp; Digital Studio</div>
+      <h1 class="hero-title">
+        Welcome to<br/>
+        <span class="gradient-text">Ericgenius</span><br/>
+        Studios
+      </h1>
+      <p class="hero-sub">A professional platform built for creativity and innovation.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openPage2()">
+          Get Started <i class="fa fa-arrow-right"></i>
+        </button>
+        <a class="btn-chat" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20web%20development,%20app,%20or%20design%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20me%3F" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+      <div class="hero-scroll-hint">
+        <span></span>Scroll to explore
+      </div>
+    </section>
+
+    <!-- ── STATS STRIP ── -->
+    <div class="stats-strip">
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Projects</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Client Focus</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Quality</span></div>
+    </div>
+
+  </div><!-- /page-landing -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       PAGE 2 — ABOUT / CONTACT
+  ═══════════════════════════════════════════════ -->
+  <div id="page-main" class="page">
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- ── NAV ── -->
+    <nav class="nav">
+      <div class="nav-brand">Ericgenius</div>
+      <div class="nav-links-desktop">
+        <a href="#" onclick="showPage('page-landing')">Home</a>
+        <a href="#" onclick="openPortfolio()">Portfolio</a>
+        <a href="#contact-section">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger2" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Drawer 2 -->
+    <div class="drawer" id="drawer2">
+      <button class="drawer-close" id="drawer-close2"><i class="fa fa-times"></i></button>
+      <ul class="drawer-links">
+        <li><a href="#" onclick="showPage('page-landing'); closeDrw2()">Home</a></li>
+        <li><a href="#" onclick="openPortfolio(); closeDrw2()">Portfolio</a></li>
+        <li><a href="#contact-section" onclick="closeDrw2()">Contact</a></li>
+      </ul>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay2" onclick="closeDrw2()"></div>
+
+    <!-- ── ABOUT SECTION ── -->
+    <section class="about-section">
+      <div class="section-badge">About Us</div>
+      <h2 class="section-title">Welcome to<br/><span class="gradient-text">Ericgenius Studios!</span></h2>
+      <div class="about-body">
+        <p>I'm passionate about turning ideas into reality through web development, app building, animations, and graphic design. Whether you need a sleek website, a powerful app, or eye-catching visuals, I create digital solutions that are both creative and functional.</p>
+        <p>I also bring stories to life through photo and video editing, making sure your content stands out with clarity, polish, and impact. Every project I work on is crafted with care, attention to detail, and a focus on delivering results that make a difference.</p>
+        <p>At Ericgenius, my goal is simple: to combine creativity, technology, and professional expertise to help you build a strong digital presence, showcase your ideas, and engage your audience in meaningful ways. Whatever your vision, I'm here to bring it to life — smoothly, professionally, and creatively.</p>
+      </div>
+
+      <!-- Services grid -->
+      <div class="services-grid">
+        <div class="service-card"><i class="fa fa-code"></i><span>Web Development</span></div>
+        <div class="service-card"><i class="fa fa-mobile-alt"></i><span>App Building</span></div>
+        <div class="service-card"><i class="fa fa-film"></i><span>Animations</span></div>
+        <div class="service-card"><i class="fa fa-palette"></i><span>Graphic Design</span></div>
+        <div class="service-card"><i class="fa fa-camera"></i><span>Photo Editing</span></div>
+        <div class="service-card"><i class="fa fa-video"></i><span>Video Editing</span></div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT SECTION ── -->
+    <section class="contact-section" id="contact-section">
+      <div class="section-badge">Get In Touch</div>
+      <h2 class="section-title">Reach out to us through<br/><span class="gradient-text">any of these channels</span></h2>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="https://wa.me/2348029006238" target="_blank" rel="noopener">
+          <div class="contact-icon green"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-info">
+            <span class="contact-type">WhatsApp / Call</span>
+            <span class="contact-val">+234 802 900 6238</span>
+          </div>
+        </a>
+        <a class="contact-card" href="https://wa.me/2347053897591" target="_blank" rel="noopener">
+          <div class="contact-icon green"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-info">
+            <span class="contact-type">WhatsApp</span>
+            <span class="contact-val">+234 705 389 7591</span>
+          </div>
+        </a>
+        <a class="contact-card" href="mailto:ericesther735@gmail.com">
+          <div class="contact-icon red"><i class="fa fa-envelope"></i></div>
+          <div class="contact-info">
+            <span class="contact-type">Email</span>
+            <span class="contact-val">ericesther735@gmail.com</span>
+          </div>
+        </a>
+        <a class="contact-card" href="mailto:ericgodwin629@gmail.com">
+          <div class="contact-icon red"><i class="fa fa-envelope"></i></div>
+          <div class="contact-info">
+            <span class="contact-type">Email</span>
+            <span class="contact-val">ericgodwin629@gmail.com</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="chat-cta">
+        <a class="btn-primary large" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20web%20development,%20app,%20or%20design%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20me%3F" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Ericgenius Studios. Crafted with passion.</p>
+    </footer>
+
+  </div><!-- /page-main -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       PAGE 3 — PORTFOLIO
+  ═══════════════════════════════════════════════ -->
+  <div id="page-portfolio" class="page">
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- ── NAV ── -->
+    <nav class="nav">
+      <div class="nav-brand">Ericgenius</div>
+      <div class="nav-links-desktop">
+        <a href="#" onclick="showPage('page-landing')">Home</a>
+        <a href="#" onclick="showPage('page-main')">About</a>
+        <a href="#" onclick="showPage('page-main'); setTimeout(()=>document.getElementById('contact-section').scrollIntoView({behavior:'smooth'}),300)">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger3" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Drawer 3 -->
+    <div class="drawer" id="drawer3">
+      <button class="drawer-close" id="drawer-close3"><i class="fa fa-times"></i></button>
+      <ul class="drawer-links">
+        <li><a href="#" onclick="showPage('page-landing'); closeDrw3()">Home</a></li>
+        <li><a href="#" onclick="showPage('page-main'); closeDrw3()">About</a></li>
+        <li><a href="#" onclick="showPage('page-main'); closeDrw3()">Contact</a></li>
+      </ul>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay3" onclick="closeDrw3()"></div>
+
+    <section class="portfolio-section">
+      <div class="section-badge">My Work</div>
+      <h2 class="section-title">Animation <span class="gradient-text">Portfolio</span></h2>
+      <p class="portfolio-intro">A showcase of creative animations and visual storytelling. Click any video to watch on YouTube.</p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="yt-thumb" onclick="openYT('https://youtube.com/shorts/fePwXRVumzU?si=UjLDeLGkhJQnjTv8')">
+            <img src="https://img.youtube.com/vi/fePwXRVumzU/hqdefault.jpg" alt="Animation 1" loading="lazy"/>
+            <div class="yt-play"><i class="fab fa-youtube"></i></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Animation Showcase #1</h3>
+            <p>Creative animation — click to watch</p>
+            <a class="btn-outline" href="https://youtube.com/shorts/fePwXRVumzU?si=UjLDeLGkhJQnjTv8" target="_blank" rel="noopener">
+              <i class="fab fa-youtube"></i> Watch on YouTube
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="yt-thumb" onclick="openYT('https://youtube.com/shorts/HPcNgO-gM8E?si=6IyplXfxbWNxeF_s')">
+            <img src="https://img.youtube.com/vi/HPcNgO-gM8E/hqdefault.jpg" alt="Animation 2" loading="lazy"/>
+            <div class="yt-play"><i class="fab fa-youtube"></i></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Animation Showcase #2</h3>
+            <p>Creative animation — click to watch</p>
+            <a class="btn-outline" href="https://youtube.com/shorts/HPcNgO-gM8E?si=6IyplXfxbWNxeF_s" target="_blank" rel="noopener">
+              <i class="fab fa-youtube"></i> Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-cta">
+        <button class="btn-primary" onclick="showPage('page-landing')">
+          <i class="fa fa-arrow-left"></i> Back to Home
+        </button>
+        <a class="btn-chat" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20web%20development,%20app,%20or%20design%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20me%3F" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Ericgenius Studios. Crafted with passion.</p>
+    </footer>
+
+  </div><!-- /page-portfolio -->
+
+  <script src="script.js"></script>
+</body>
+</html>
