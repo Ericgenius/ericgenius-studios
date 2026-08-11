@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ericgenius Studios</title>
+  <link rel="stylesheet" href="https://use.typekit.net/gph6bet.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LAYER 1 — ANIMATED WALLPAPER CANVAS
+══════════════════════════════════════════ -->
+<canvas id="wallpaper"></canvas>
+
+<!-- LAYER 2 — Adaptive dark overlay (controls per scene) -->
+<div id="scene-veil"></div>
+
+<!-- LAYER 3 — Cursor glow -->
+<div id="cursor-glow"></div>
+
+<!-- LAYER 4 — Loading screen -->
+<div id="loading-screen">
+  <div class="loading-inner">
+    <div class="loading-logo">
+      <svg width="40" height="40" viewBox="0 0 256 256">
+        <path d="M128 128C128 198.692 70.692 256 0 256C0 185.308 57.308 128 128 128Z
+                 M128 128C198.692 128 256 185.308 256 256C185.308 256 128 198.692 128 128Z
+                 M0 0C70.692 0 128 57.308 128 128C57.308 128 0 70.692 0 0Z
+                 M256 0C256 70.692 198.692 128 128 128C128 57.308 185.308 0 256 0Z"/>
+      </svg>
+      <span>ERICGENIUS</span>
+    </div>
+    <div class="loading-bar-wrap"><div id="loading-bar"></div></div>
+    <p id="loading-label">Loading experience…</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LAYER 5 — NAVIGATION (fixed)
+══════════════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="nav-brand" onclick="scrollToTop()">
+    <svg width="20" height="20" viewBox="0 0 256 256">
+      <path d="M128 128C128 198.692 70.692 256 0 256C0 185.308 57.308 128 128 128Z
+               M128 128C198.692 128 256 185.308 256 256C185.308 256 128 198.692 128 128Z
+               M0 0C70.692 0 128 57.308 128 128C57.308 128 0 70.692 0 0Z
+               M256 0C256 70.692 198.692 128 128 128C128 57.308 185.308 0 256 0Z"/>
+    </svg>
+    Ericgenius
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-chat" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> Chat Now
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawer-close"><i class="fa fa-times"></i></button>
+  <ul class="drawer-links">
+    <li><a href="#about"     onclick="closeDrw()">About</a></li>
+    <li><a href="#projects"  onclick="closeDrw()">Projects</a></li>
+    <li><a href="#portfolio" onclick="closeDrw()">Portfolio</a></li>
+    <li><a href="#contact"   onclick="closeDrw()">Contact</a></li>
+    <li>
+      <a href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener" onclick="closeDrw()">
+        <i class="fab fa-whatsapp"></i> Chat Now
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrw()"></div>
+
+<!-- ══════════════════════════════════════════
+     LAYER 6 — MAIN SCROLLABLE CONTENT
+══════════════════════════════════════════ -->
+<main id="site-content">
+
+  <!-- ══════════════════════════════════════
+       ANIMATION JOURNEY  (450vh scroll driver)
+       The canvas wallpaper is controlled here
+  ══════════════════════════════════════ -->
+  <section id="animation-journey" aria-label="Interactive animation experience">
+
+    <!-- Sticky stage (stays in viewport while scrolling through journey) -->
+    <div class="sticky-stage">
+
+      <!-- Scene captions (one shown at a time, synced to frame) -->
+      <div id="scene-captions" aria-live="polite">
+
+        <div class="scene-caption active" data-scene="intro">
+          <div class="caption-inner">
+            <div class="caption-badge">Creative &amp; Digital Studio</div>
+            <h1 class="caption-heading">Welcome to<br/><span class="glow-text">Ericgenius Studios</span></h1>
+            <p class="caption-sub">A professional platform built for creativity and innovation.</p>
+            <div class="caption-actions">
+              <a href="#about" class="btn-primary">Get Started <i class="fa fa-arrow-right"></i></a>
+              <a class="btn-chat" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Chat Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-caption" data-scene="digital">
+          <div class="caption-inner">
+            <div class="caption-badge">Web &amp; Mobile</div>
+            <h2 class="caption-heading">Web &amp; App<br/><span class="glow-text">Development</span></h2>
+            <p class="caption-sub">From sleek websites to powerful apps — built for impact and results.</p>
+          </div>
+        </div>
+
+        <div class="scene-caption" data-scene="design">
+          <div class="caption-inner">
+            <div class="caption-badge">Creative Design</div>
+            <h2 class="caption-heading">Graphic Design &amp;<br/><span class="glow-text">Marketing</span></h2>
+            <p class="caption-sub">From logos and marketing materials to social media designs that convert.</p>
+          </div>
+        </div>
+
+        <div class="scene-caption" data-scene="media">
+          <div class="caption-inner">
+            <div class="caption-badge">Visual Production</div>
+            <h2 class="caption-heading">Photo &amp; Video<br/><span class="glow-text">Editing</span></h2>
+            <p class="caption-sub">Stories brought to life with clarity, polish, and cinematic impact.</p>
+          </div>
+        </div>
+
+        <div class="scene-caption" data-scene="ai">
+          <div class="caption-inner">
+            <div class="caption-badge">AI-Powered</div>
+            <h2 class="caption-heading">We Harness the<br/><span class="glow-text">Power of AI</span></h2>
+            <p class="caption-sub">Artificial intelligence integrated into every workflow for smarter, faster results.</p>
+          </div>
+        </div>
+
+        <div class="scene-caption" data-scene="cta">
+          <div class="caption-inner">
+            <div class="caption-badge">Let's Work Together</div>
+            <h2 class="caption-heading">Build Your<br/><span class="glow-text">Digital Future</span></h2>
+            <p class="caption-sub">Whatever your vision — I'm here to bring it to life smoothly, professionally, and creatively.</p>
+            <div class="caption-actions">
+              <a href="#contact" class="btn-primary">Contact Me <i class="fa fa-arrow-right"></i></a>
+              <a class="btn-chat" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Chat Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /scene-captions -->
+
+      <!-- Ball interaction hotspot -->
+      <div id="ball-hotspot" title="Click to advance" aria-label="Interactive ball — click to advance to next scene">
+        <div class="ball-ring"></div>
+        <div class="ball-hint">Click</div>
+      </div>
+
+      <!-- Scene progress dots -->
+      <div id="scene-dots" aria-label="Scene navigation">
+        <button class="scene-dot active" data-scene="intro"   onclick="jumpToScene('intro')"   aria-label="Scene 1: Intro"></button>
+        <button class="scene-dot"        data-scene="digital" onclick="jumpToScene('digital')" aria-label="Scene 2: Digital"></button>
+        <button class="scene-dot"        data-scene="design"  onclick="jumpToScene('design')"  aria-label="Scene 3: Design"></button>
+        <button class="scene-dot"        data-scene="media"   onclick="jumpToScene('media')"   aria-label="Scene 4: Media"></button>
+        <button class="scene-dot"        data-scene="ai"      onclick="jumpToScene('ai')"      aria-label="Scene 5: AI"></button>
+        <button class="scene-dot"        data-scene="cta"     onclick="jumpToScene('cta')"     aria-label="Scene 6: CTA"></button>
+      </div>
+
+      <!-- Progress bar -->
+      <div id="journey-progress">
+        <div id="journey-bar"></div>
+      </div>
+
+      <!-- Scroll hint (fades after first scroll) -->
+      <div id="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+
+      <!-- Frame counter (dev mode, hidden in production) -->
+      <div id="frame-counter" style="display:none"></div>
+
+    </div><!-- /sticky-stage -->
+  </section><!-- /animation-journey -->
+
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about" class="content-section">
+    <div class="section-inner">
+      <div class="section-badge">About Us</div>
+      <h2 class="section-title">Welcome to <span class="glow-text">Ericgenius Studios!</span></h2>
+      <div class="about-text">
+        <p>I'm passionate about turning ideas into reality through web development, app building, animations, and graphic design. Whether you need a sleek website, a powerful app, or eye-catching visuals, I create digital solutions that are both creative and functional.</p>
+        <p>I also bring stories to life through photo and video editing, making sure your content stands out with clarity, polish, and impact. Every project I work on is crafted with care, attention to detail, and a focus on delivering results that make a difference.</p>
+        <p>At Ericgenius, my goal is simple: to combine creativity, technology, and professional expertise to help you build a strong digital presence, showcase your ideas, and engage your audience in meaningful ways. Whatever your vision, I'm here to bring it to life — smoothly, professionally, and creatively.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-code"></i></div><span>Web Development</span></div>
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-mobile-alt"></i></div><span>App Building</span></div>
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-film"></i></div><span>Animations</span></div>
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-palette"></i></div><span>Graphic Design</span></div>
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-camera"></i></div><span>Photo Editing</span></div>
+        <div class="svc-card reveal"><div class="svc-icon"><i class="fa fa-video"></i></div><span>Video Editing</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════ -->
+  <section id="projects" class="content-section">
+    <div class="section-inner">
+      <div class="section-badge">Featured Work</div>
+      <h2 class="section-title">Projects I've <span class="glow-text">Built</span></h2>
+      <div class="projects-grid">
+
+        <div class="proj-card reveal">
+          <div class="proj-thumb orange"><i class="fa fa-utensils"></i><span class="proj-tag">Catering</span></div>
+          <div class="proj-body">
+            <h3>Alayo's Kitchen</h3>
+            <p>A sleek catering website showcasing Nigerian cuisine and driving direct bookings via WhatsApp.</p>
+            <a href="https://alayoskitchen.vercel.app" target="_blank" rel="noopener" class="proj-link">
+              <i class="fa fa-external-link-alt"></i> alayoskitchen.vercel.app
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-thumb pink"><i class="fa fa-birthday-cake"></i><span class="proj-tag">Cakes &amp; Events</span></div>
+          <div class="proj-body">
+            <h3>Dandylicious Cakes &amp; Events</h3>
+            <p>A vibrant events and cake-ordering website designed to delight and convert visitors into customers.</p>
+            <span class="proj-link muted"><i class="fa fa-clock"></i> Link coming soon</span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-thumb cyan"><i class="fa fa-brain"></i><span class="proj-tag">AI Platform</span></div>
+          <div class="proj-body">
+            <h3>KokoLearnAI</h3>
+            <p>An AI-powered learning platform making education smarter, faster, and more accessible.</p>
+            <a href="https://kokolearnai.lovable.app" target="_blank" rel="noopener" class="proj-link">
+              <i class="fa fa-external-link-alt"></i> kokolearnai.lovable.app
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       PORTFOLIO
+  ══════════════════════════════════════ -->
+  <section id="portfolio" class="content-section">
+    <div class="section-inner">
+      <div class="section-badge">Animation Work</div>
+      <h2 class="section-title">Animation <span class="glow-text">Portfolio</span></h2>
+      <p class="section-lead">Creative motion design — click any video to watch on YouTube.</p>
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card reveal">
+          <div class="yt-thumb" onclick="window.open('https://youtube.com/shorts/fePwXRVumzU?si=UjLDeLGkhJQnjTv8','_blank','noopener')">
+            <img src="https://img.youtube.com/vi/fePwXRVumzU/hqdefault.jpg" alt="Animation Showcase 1" loading="lazy"/>
+            <div class="yt-overlay"><i class="fab fa-youtube"></i></div>
+            <span class="yt-label">Short #1</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Animation Showcase #1</h3>
+            <a href="https://youtube.com/shorts/fePwXRVumzU?si=UjLDeLGkhJQnjTv8" target="_blank" rel="noopener" class="btn-outline">
+              <i class="fab fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal">
+          <div class="yt-thumb" onclick="window.open('https://youtube.com/shorts/HPcNgO-gM8E?si=6IyplXfxbWNxeF_s','_blank','noopener')">
+            <img src="https://img.youtube.com/vi/HPcNgO-gM8E/hqdefault.jpg" alt="Animation Showcase 2" loading="lazy"/>
+            <div class="yt-overlay"><i class="fab fa-youtube"></i></div>
+            <span class="yt-label">Short #2</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Animation Showcase #2</h3>
+            <a href="https://youtube.com/shorts/HPcNgO-gM8E?si=6IyplXfxbWNxeF_s" target="_blank" rel="noopener" class="btn-outline">
+              <i class="fab fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" class="content-section">
+    <div class="section-inner">
+      <div class="section-badge">Get In Touch</div>
+      <h2 class="section-title">Reach out through <span class="glow-text">any of these channels</span></h2>
+      <p class="section-lead">Ready to bring your vision to life? Let's talk.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card reveal" href="https://wa.me/2348029006238" target="_blank" rel="noopener">
+          <div class="contact-icon green"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-info"><span class="contact-type">WhatsApp / Call</span><span class="contact-val">+234 802 900 6238</span></div>
+          <i class="fa fa-chevron-right"></i>
+        </a>
+        <a class="contact-card reveal" href="https://wa.me/2347053897591" target="_blank" rel="noopener">
+          <div class="contact-icon green"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-info"><span class="contact-type">WhatsApp</span><span class="contact-val">+234 705 389 7591</span></div>
+          <i class="fa fa-chevron-right"></i>
+        </a>
+        <a class="contact-card reveal" href="mailto:ericesther735@gmail.com">
+          <div class="contact-icon red"><i class="fa fa-envelope"></i></div>
+          <div class="contact-info"><span class="contact-type">Email</span><span class="contact-val">ericesther735@gmail.com</span></div>
+          <i class="fa fa-chevron-right"></i>
+        </a>
+        <a class="contact-card reveal" href="mailto:ericgeniusstudios@gmail.com">
+          <div class="contact-icon red"><i class="fa fa-envelope"></i></div>
+          <div class="contact-info"><span class="contact-type">Email</span><span class="contact-val">ericgeniusstudios@gmail.com</span></div>
+          <i class="fa fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <div class="contact-cta">
+        <a class="btn-primary large" href="https://wa.me/2348029006238?text=Hello!%20I%20came%20across%20Ericgenius%20and%20I'm%20interested%20in%20your%20web%20development,%20app,%20or%20design%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20me%3F" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Ericgenius Studios &mdash; Crafted with passion.</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
